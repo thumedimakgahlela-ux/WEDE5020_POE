@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Ubuntu rise Foundation</title>
+    <style>
+        /* ===== Global page reset & base styling (same theme as all pages) ===== */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Georgia, 'Times New Roman', serif;
+            background-color: #1b3a34;
+            background-image: linear-gradient(160deg, #1b3a34 0%, #2f5d50 45%, #c98a3e 100%);
+            background-attachment: fixed;
+            color: #fdf8ee;
+        }
+
+        /* ===== Header / hero banner styling ===== */
+        header {
+            text-align: center;
+            padding: 60px 20px 40px 20px;
+        }
+        header h1 {
+            font-size: 2.8em;
+            margin: 0;
+            letter-spacing: 1px;
+            color: #f4c76b;
+        }
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            font-style: italic;
+            color: #fdf8ee;
+        }
+
+        /* ===== Navigation bar styling ===== */
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        nav a {
+            color: #fdf8ee;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 18px;
+            border-radius: 30px;
+            border: 2px solid #f4c76b;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #f4c76b;
+            color: #1b3a34;
+        }
+
+        /* ===== Main content wrapper (holds the intro text + all sections below) ===== */
+        main {
+            max-width: 800px;
+            margin: 0 auto; /* Centers the whole main content column on the page */
+            padding: 0 20px;
+        }
+        main > h2 {
+            font-size: 1.8em;
+            color: #f4c76b;
+            text-align: center;
+            margin-top: 50px;
+        }
+        main > p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            text-align: center;
+            max-width: 600px;
+            margin: 10px auto 0 auto; /* Centers the intro paragraph and limits its width for readability */
+        }
+
+        /* ===== Individual sections within main (map section, find-us section) ===== */
+        section {
+            margin: 40px auto;
+        }
+        section h2 {
+            font-size: 1.5em;
+            color: #f4c76b;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* ===== Embedded map card ===== */
+        .location-card {
+            border-radius: 16px;
+            overflow: hidden; /* Ensures the map iframe respects the card's rounded corners */
+            background-color: rgba(0, 0, 0, 0.25);
+        }
+        .location-card iframe {
+            width: 100%;
+            height: 300px;
+            border: none; /* Removes the default iframe border */
+            display: block; /* Prevents extra whitespace that inline iframes can create below them */
+        }
+
+        /* ===== "Find us" info cards (phone, email, hours) ===== */
+        .info-cards {
+            display: flex;
+            flex-wrap: wrap; /* Lets cards stack on top of each other on narrow screens */
+            gap: 20px;
+            justify-content: center;
+        }
+        .info-card {
+            background-color: rgba(0, 0, 0, 0.25);
+            border-radius: 16px;
+            padding: 25px;
+            flex: 1 1 220px; /* Cards grow/shrink but have a base width of ~220px */
+            max-width: 260px;
+            text-align: center;
+        }
+        .info-card h3 {
+            color: #f4c76b;
+            margin-top: 0;
+        }
+        .info-card p {
+            font-size: 1em;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <!-- Site header (repeated on every page) -->
+    <header>
+        <h1>Ubuntu rise Foundation</h1>
+        <p>Rising together, Empowering communities.</p>
+    </header>
+
+    <!-- Main navigation (repeated on every page) -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="enquiry.html">Enquiry</a>
+    </nav>
+
+    <main>
+        <!-- Page intro heading and short description -->
+        <h2>Contact us</h2>
+        <p>
+            We'd love to hear from you! Get in touch with
+            Ubuntu Rise Foundation to learn more about our
+            work, ask questions, or find out how you can support our mission.
+        </p>
+
+        <!-- Section: Embedded map showing the branch location -->
+        <section>
+            <h2>Branch</h2>
+            <div class="location-card">
+                <!-- OpenStreetMap embed showing the foundation's location -->
+                <iframe
+                    src="https://www.openstreetmap.org/export/embed.html"
+                    title="Map showing our location"
+                    loading="lazy">
+                </iframe>
+            </div>
+        </section>
+
+        <!-- Section: Quick-reference contact details laid out as three cards -->
+        <section>
+            <h2>Find us</h2>
+            <div class="info-cards">
+                <!-- Card 1: Phone / WhatsApp numbers -->
+                <div class="info-card">
+                    <h3>Contact numbers</h3>
+                    <p>
+                        012 456 7890<br>
+                        WhatsApp: 081 456 3760
+                    </p>
+                </div>
+                <!-- Card 2: Email address and response time -->
+                <div class="info-card">
+                    <h3>Email</h3>
+                    <p>
+                        ubuntu.rise@gmail.com<br>
+                        Within 24 hours we will get back to you
+                    </p>
+                </div>
+                <!-- Card 3: Operating hours -->
+                <div class="info-card">
+                    <h3>Operating hours</h3>
+                    <p>
+                        Mon-Fri 07:00 - 17:00<br>
+                        Saturday 09:00 - 13:00<br>
+                        Sunday &amp; Public holidays - Closed
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

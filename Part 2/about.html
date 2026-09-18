@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Ubuntu rise Foundation</title>
+    <style>
+        /* ===== Global page reset & base styling (same theme as all pages) ===== */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Georgia, 'Times New Roman', serif;
+            background-color: #1b3a34; /* Fallback color behind the gradient */
+            background-image: linear-gradient(160deg, #1b3a34 0%, #2f5d50 45%, #c98a3e 100%); /* Green-to-gold diagonal gradient */
+            background-attachment: fixed; /* Gradient stays fixed while page content scrolls */
+            color: #fdf8ee;
+        }
+
+        /* ===== Header / hero banner styling ===== */
+        header {
+            text-align: center;
+            padding: 60px 20px 40px 20px;
+        }
+        header h1 {
+            font-size: 2.8em;
+            margin: 0;
+            letter-spacing: 1px;
+            color: #f4c76b;
+        }
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            font-style: italic;
+            color: #fdf8ee;
+        }
+
+        /* ===== Navigation bar styling ===== */
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        nav a {
+            color: #fdf8ee;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 18px;
+            border-radius: 30px;
+            border: 2px solid #f4c76b;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #f4c76b;
+            color: #1b3a34;
+        }
+
+        /* ===== Content "card" sections (one per story block: background, about, aims) ===== */
+        section {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 40px;
+            background-color: rgba(0, 0, 0, 0.25);
+            border-radius: 16px;
+            text-align: center;
+        }
+        section h2 {
+            font-size: 1.8em;
+            color: #f4c76b;
+            margin-bottom: 20px;
+        }
+        section p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        section img {
+            max-width: 100%; /* Keeps images from overflowing their card on small screens */
+            border-radius: 12px; /* Slightly rounded image corners to match the card style */
+            margin-top: 20px;
+        }
+        .caption {
+            font-size: 0.95em;
+            color: #f4c76b; /* Gold caption text so it doesn't blend into the body copy */
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Site header (repeated on every page) -->
+    <header>
+        <h1>Ubuntu rise Foundation</h1>
+        <p>Rising together, Empowering communities.</p>
+    </header>
+
+    <!-- Main navigation (repeated on every page) -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="enquiry.html">Enquiry</a>
+    </nav>
+
+    <!-- Section 1: Origin story / background of the foundation -->
+    <section>
+        <h2>Background of Ubuntu Rise Foundation</h2>
+        <p>
+            Ubuntu Rise Foundation is a non-profit organisation
+            established with the vision of uplifting communities and improving the quality of life
+            for vulnerable individuals and families.
+            Inspired by the African philosophy of Ubuntu, "I am because we are",
+            the foundation believes that lasting change is achieved when people work together to support one another.
+        </p>
+        <!-- Photo of a volunteer engaging with the community, paired with a caption below it -->
+        <img src="images/Ubuntu picture 1.jpg" alt="A volunteer greeting and supporting community members during an outreach programme.">
+        <p class="caption"><i>Together, we are making a difference, one community at a time.</i></p>
+    </section>
+
+    <!-- Section 2: What the organisation does / who it's for -->
+    <section>
+        <h2>About us</h2>
+        <p>
+            The organisation was created to address social challenges such as poverty,
+            unemployment, limited access to education, and community development.
+            Through partnerships, volunteerism, skills development programmes,
+            educational support, and community outreach initiatives,
+            Ubuntu Rise Foundation aims to empower people with the knowledge, resources,
+            and opportunities they need to become self-reliant.
+        </p>
+        <!-- Photo of two children holding a "hope" sign, reinforcing the emotional message -->
+        <img src="images/Ubuntu picture 2.jpg" alt="Two smiling children holding a sign that says hope.">
+        <p class="caption"><i>Together, they hold a simple message of hope for a brighter future.</i></p>
+    </section>
+
+    <!-- Section 3: The foundation's long-term vision/goals -->
+    <section>
+        <h2>What we aim to achieve</h2>
+        <p>
+            Our commitment is to build stronger, more inclusive communities where everyone has the opportunity to grow,
+            succeed, and contribute positively to society.
+            By promoting compassion, dignity, and collaboration,
+            Ubuntu Rise Foundation strives to create lasting social impact and inspire hope for future generations.
+        </p>
+        <!-- Closing image reinforcing the "hope for the future" theme -->
+        <img src="images/ubuntu picture 3.jpg" alt="Two smiling children holding a hope sign.">
+        <p class="caption"><i>Small hands, big dreams, and endless hope.</i></p>
+    </section>
+</body>
+</html>
