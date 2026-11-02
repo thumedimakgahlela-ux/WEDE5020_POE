@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://ubuntu-rise-foundation.netlify.app/sitemap.xml
