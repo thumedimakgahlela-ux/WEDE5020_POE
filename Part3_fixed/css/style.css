@@ -1,0 +1,453 @@
+/* ============================================================
+   Ubuntu rise Foundation — shared stylesheet
+   Used by: index.html, about.html, services.html, contact.html, enquiry.html
+   ============================================================ */
+
+/* ===== Global page reset & base styling ===== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, 'Times New Roman', serif; /* Classic serif font for a warm, established feel */
+    background-color: #1b3a34; /* Fallback dark green in case the gradient fails to load */
+    /* Diagonal gradient background: dark green -> mid green -> warm gold */
+    background-image: linear-gradient(160deg, #1b3a34 0%, #2f5d50 45%, #c98a3e 100%);
+    background-attachment: fixed; /* Keeps the gradient fixed in place while the page scrolls */
+    color: #fdf8ee; /* Off-white text color for good contrast against the dark background */
+}
+
+/* ===== Header / hero banner ===== */
+header {
+    text-align: center;
+    padding: 60px 20px 40px 20px;
+}
+header h1 {
+    font-size: 2.8em;
+    margin: 0;
+    letter-spacing: 1px;
+    color: #f4c76b; /* Gold accent color used throughout the site */
+}
+header p {
+    font-size: 1.2em;
+    margin-top: 10px;
+    font-style: italic;
+    color: #fdf8ee;
+}
+
+/* ===== Navigation bar ===== */
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+nav a {
+    color: #fdf8ee;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 18px;
+    border-radius: 30px;
+    border: 2px solid #f4c76b;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+nav a:hover {
+    background-color: #f4c76b;
+    color: #1b3a34;
+}
+
+/* ===== Content "card" sections (used on Home, About, Services) ===== */
+section {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    text-align: center;
+}
+section h2 {
+    font-size: 1.8em;
+    color: #f4c76b;
+    margin-bottom: 20px;
+}
+section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+section ul {
+    text-align: left; /* Used on the Services page */
+    display: inline-block;
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-top: 10px;
+}
+section img {
+    max-width: 100%;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+.caption {
+    font-size: 0.95em;
+    color: #f4c76b;
+    margin-top: 10px;
+}
+
+/* ===== Buttons (Home "About us", Services "Enquiries") ===== */
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 32px;
+    background-color: #f4c76b;
+    color: #1b3a34;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.btn:hover {
+    background-color: #ffdb94;
+    transform: scale(1.05);
+}
+
+/* ===== Contact page: main wrapper ===== */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+main > h2 {
+    font-size: 1.8em;
+    color: #f4c76b;
+    text-align: center;
+    margin-top: 50px;
+}
+main > p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    text-align: center;
+    max-width: 600px;
+    margin: 10px auto 0 auto;
+}
+main section {
+    margin: 40px auto;
+}
+main section h2 {
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* ===== Contact page: embedded map card ===== */
+.location-card {
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+.location-card iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
+    display: block;
+}
+
+/* ===== Contact page: info cards (phone, email, hours) ===== */
+.info-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.info-card {
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    padding: 25px;
+    flex: 1 1 220px;
+    max-width: 260px;
+    text-align: center;
+}
+.info-card h3 {
+    color: #f4c76b;
+    margin-top: 0;
+}
+.info-card p {
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+/* ===== Enquiry page: form styling ===== */
+.field {
+    margin-bottom: 20px;
+}
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #f4c76b;
+}
+.hint {
+    font-weight: normal;
+    font-style: italic;
+    color: #fdf8ee;
+    margin-left: 6px;
+}
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+/* Full-width submit button on the Enquiry form (overrides the inline .btn above) */
+form .btn {
+    display: block;
+    width: 100%;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+}
+form .btn:hover {
+    transform: scale(1.02);
+}
+
+/* ===== Responsive adjustments for small screens (phones) ===== */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2em;
+    }
+    nav {
+        gap: 6px;
+    }
+    section {
+        margin: 30px 16px;
+        padding: 25px;
+    }
+}
+
+/* ============================================================
+   PART 3 ADDITIONS
+   ============================================================ */
+
+/* ----- Accessibility helpers ----- */
+.skip-link { position: absolute; left: -999px; top: 0; background: #f4c76b; color: #1b3a34; padding: 10px 16px; z-index: 100; font-weight: bold; }
+.skip-link:focus { left: 10px; top: 10px; }
+:focus-visible { outline: 3px solid #f4c76b; outline-offset: 3px; }
+.site-name { font-size: 2.8em; margin: 0; letter-spacing: 1px; color: #f4c76b; font-weight: bold; }
+.tagline { font-size: 1.2em; margin-top: 10px; font-style: italic; }
+nav a[aria-current="page"] { background-color: #f4c76b; color: #1b3a34; }
+main h1 { text-align: center; color: #f4c76b; font-size: 2em; margin: 40px 20px 0; }
+.lead { text-align: center; max-width: 620px; margin: 10px auto 0; font-size: 1.1em; line-height: 1.6; padding: 0 20px; }
+main > section { max-width: 700px; }
+main > section.wide { max-width: 900px; }
+
+/* ----- Hero entrance (single page-load animation) ----- */
+.hero-card { animation: riseIn 0.9s ease both; }
+@keyframes riseIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+
+/* ----- Footer ----- */
+footer { text-align: center; padding: 30px 20px 40px; background: rgba(0,0,0,0.25); margin-top: 60px; }
+footer a { color: #f4c76b; }
+footer ul { list-style: none; padding: 0; margin: 0 0 15px; display: flex; flex-wrap: wrap; gap: 18px; justify-content: center; }
+footer p { margin: 6px 0; font-size: 0.95em; }
+
+/* ----- Services: toolbar + cards ----- */
+.toolbar { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; max-width: 900px; margin: 30px auto 0; padding: 0 20px; }
+.toolbar > div { flex: 1 1 200px; }
+.toolbar label { font-size: 0.9em; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; max-width: 900px; margin: 30px auto 0; padding: 0 20px; }
+.service-card { background: rgba(0,0,0,0.25); border-radius: 16px; padding: 25px; display: flex; flex-direction: column; }
+.service-card h3 { color: #f4c76b; margin-top: 0; }
+.service-card p { line-height: 1.5; flex: 1; }
+.service-card .tag { align-self: flex-start; font-size: 0.85em; border: 1px solid #f4c76b; border-radius: 20px; padding: 2px 12px; margin-bottom: 10px; }
+.service-card .btn { margin-top: 10px; border: none; font-size: 1em; cursor: pointer; font-family: inherit; }
+.status { text-align: center; margin-top: 20px; font-style: italic; }
+
+/* ----- Accordion ----- */
+.accordion { text-align: left; margin-top: 20px; }
+.acc-item { border-bottom: 1px solid rgba(244,199,107,0.4); }
+.acc-btn { width: 100%; text-align: left; background: none; border: none; color: #fdf8ee; font-family: inherit; font-size: 1.1em; padding: 16px 30px 16px 0; cursor: pointer; position: relative; font-weight: bold; }
+.acc-btn::after { content: "+"; position: absolute; right: 6px; color: #f4c76b; font-size: 1.4em; transition: transform 0.3s; }
+.acc-btn[aria-expanded="true"]::after { transform: rotate(45deg); }
+.acc-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.35s ease; }
+.acc-panel > div { overflow: hidden; }
+.acc-panel.open { grid-template-rows: 1fr; }
+.acc-panel p { margin: 0 0 16px; text-align: left; }
+
+/* ----- Tabs ----- */
+.tabs [role="tablist"] { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 15px; }
+.tabs [role="tab"] { background: none; border: 2px solid #f4c76b; color: #fdf8ee; font-family: inherit; font-size: 1em; padding: 8px 20px; border-radius: 30px; cursor: pointer; transition: background-color 0.3s, color 0.3s; }
+.tabs [role="tab"][aria-selected="true"] { background: #f4c76b; color: #1b3a34; font-weight: bold; }
+.tabs [role="tabpanel"] { animation: riseIn 0.4s ease both; }
+
+/* ----- Gallery + lightbox + modal (native <dialog>) ----- */
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: 20px; }
+.gallery button { padding: 0; border: none; background: none; cursor: zoom-in; border-radius: 12px; overflow: hidden; }
+.gallery img { width: 100%; height: 150px; object-fit: cover; margin: 0; display: block; border-radius: 0; transition: transform 0.3s; }
+.gallery button:hover img, .gallery button:focus-visible img { transform: scale(1.06); }
+dialog { border: none; border-radius: 16px; padding: 0; background: #1b3a34; color: #fdf8ee; max-width: min(92vw, 900px); }
+dialog::backdrop { background: rgba(0,0,0,0.8); }
+.dlg-body { padding: 28px; }
+.dlg-body h2 { color: #f4c76b; margin-top: 0; }
+.lightbox-img { display: block; max-width: 100%; max-height: 75vh; margin: 0 auto; }
+.lb-caption { text-align: center; padding: 12px 16px; margin: 0; color: #f4c76b; }
+.dlg-close, .lb-nav { position: absolute; background: rgba(0,0,0,0.6); color: #fff; border: none; width: 44px; height: 44px; border-radius: 50%; font-size: 1.4em; cursor: pointer; }
+.dlg-close { top: 10px; right: 10px; }
+.lb-nav.prev { left: 10px; top: 45%; }
+.lb-nav.next { right: 10px; top: 45%; }
+
+/* ----- Video + map ----- */
+.video-wrap { position: relative; aspect-ratio: 16 / 9; margin-top: 20px; border-radius: 12px; overflow: hidden; }
+.video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+#map { height: 320px; border-radius: 16px; z-index: 0; }
+
+/* ----- Forms: validation + results ----- */
+.field-row { display: flex; flex-wrap: wrap; gap: 16px; }
+.field-row .field { flex: 1 1 180px; }
+form { text-align: left; }
+.error-msg { color: #ffb3a7; font-size: 0.9em; margin: 6px 0 0; min-height: 1.2em; }
+input.invalid, select.invalid, textarea.invalid { outline: 3px solid #ff8a75; }
+.char-count { text-align: right; font-size: 0.85em; margin: 4px 0 0; }
+.result-box { margin-top: 25px; padding: 22px; border-radius: 12px; background: rgba(244,199,107,0.15); border: 2px solid #f4c76b; text-align: left; }
+.result-box h3 { margin-top: 0; color: #f4c76b; }
+.result-box pre { white-space: pre-wrap; font-family: inherit; line-height: 1.5; background: rgba(0,0,0,0.25); padding: 14px; border-radius: 8px; }
+.result-box .btn { margin-right: 10px; border: none; font-size: 1em; font-family: inherit; cursor: pointer; }
+.hidden { display: none; }
+.btn.secondary { background: transparent; color: #f4c76b; border: 2px solid #f4c76b; }
+
+@media (max-width: 600px) {
+    .site-name { font-size: 2em; }
+    main > section { margin: 30px 16px; padding: 25px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN (Part 2 feedback fixes)
+   Breakpoints: 992px (small laptop), 768px (tablet),
+   600px (mobile), 400px (small phones).
+   ============================================================ */
+
+/* ----- Base safety rules: nothing may overflow the screen ----- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { overflow-x: hidden; line-height: 1.5; }
+img, iframe, video { max-width: 100%; }
+section img { height: auto; }
+.info-card p, footer p { overflow-wrap: anywhere; }
+
+/* ----- Navigation: desktop = horizontal pills; toggle button hidden ----- */
+.nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.nav-toggle {
+    display: none;
+    width: 100%;
+    background: none;
+    color: #fdf8ee;
+    border: 2px solid #f4c76b;
+    border-radius: 30px;
+    padding: 12px 18px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Extra pseudo-class states for interactive elements */
+nav a:focus-visible { background-color: #f4c76b; color: #1b3a34; }
+nav a:active, .nav-toggle:active { background-color: #ffdb94; color: #1b3a34; }
+.nav-toggle:hover, .nav-toggle:focus-visible { background-color: #f4c76b; color: #1b3a34; }
+.btn:focus-visible { background-color: #ffdb94; }
+.btn:active { transform: scale(0.97); }
+input:hover, select:hover, textarea:hover { background-color: #fffdf6; }
+input:focus, select:focus, textarea:focus { outline: 3px solid #f4c76b; outline-offset: 2px; }
+.acc-btn:hover, .acc-btn:focus-visible { color: #f4c76b; }
+.tabs [role="tab"]:hover { background: rgba(244, 199, 107, 0.25); }
+.tabs [role="tab"][aria-selected="true"]:hover { background: #f4c76b; }
+
+/* ----- Small laptops / large tablets (<= 992px) ----- */
+@media (max-width: 992px) {
+    .site-name, header h1 { font-size: 2.5rem; }
+    main > section, main > section.wide, section { margin-left: 24px; margin-right: 24px; max-width: none; }
+    main { max-width: 100%; }
+    main > section.wide, .toolbar, .card-grid { max-width: 100%; }
+}
+
+/* ----- Tablets (<= 768px): collapsible menu, smaller type, tighter spacing ----- */
+@media (max-width: 768px) {
+    header { padding: 40px 20px 28px; }
+    .site-name, header h1 { font-size: 2.2rem; }
+    .tagline, header p { font-size: 1.1rem; }
+
+    /* Navigation collapses behind a Menu button */
+    nav { display: block; padding: 12px 20px; }
+    .nav-toggle { display: block; }
+    .nav-links { display: none; flex-direction: column; gap: 8px; margin-top: 10px; }
+    nav.open .nav-links { display: flex; }
+    .nav-links a { text-align: center; padding: 13px 18px; } /* large tap target */
+
+    main h1 { font-size: 1.7rem; margin: 30px 20px 0; }
+    section, main > section { padding: 30px; }
+    section h2, main > h2 { font-size: 1.55rem; }
+    .lead { font-size: 1.05rem; }
+
+    .location-card iframe { height: 260px; }
+    #map { height: 280px; }
+    .gallery img { height: 130px; }
+    .info-card { max-width: none; flex: 1 1 200px; }
+    .dlg-body { padding: 22px; }
+}
+
+/* ----- Mobile (<= 600px): single column, smallest type ----- */
+@media (max-width: 600px) {
+    header { padding: 30px 16px 20px; }
+    .site-name, header h1 { font-size: 1.9rem; letter-spacing: 0.5px; }
+    .tagline, header p { font-size: 1rem; }
+
+    main h1 { font-size: 1.5rem; margin: 24px 16px 0; }
+    .lead, section p, main > p { font-size: 1rem; }
+    section, main > section { margin: 24px 14px; padding: 22px; }
+    section h2, main > h2 { font-size: 1.35rem; margin-bottom: 14px; }
+    main section h2 { font-size: 1.25rem; }
+    section ul { font-size: 1rem; padding-left: 20px; }
+    .caption, .lb-caption { font-size: 0.9rem; }
+
+    /* Single-column stacking */
+    .info-cards { flex-direction: column; align-items: stretch; }
+    .info-card { flex: 1 1 auto; padding: 20px; }
+    .toolbar { flex-direction: column; padding: 0 14px; }
+    .toolbar > div { flex: 1 1 auto; }
+    .card-grid { grid-template-columns: 1fr; padding: 0 14px; }
+    .field-row { flex-direction: column; gap: 0; }
+    .gallery { grid-template-columns: repeat(2, 1fr); }
+    .gallery img { height: 110px; }
+
+    /* Full-width buttons are easier to tap */
+    .btn { display: block; width: 100%; text-align: center; padding: 14px 20px; }
+    .result-box .btn { margin: 0 0 10px; }
+    .acc-btn { font-size: 1rem; }
+    .tabs [role="tab"] { padding: 8px 14px; font-size: 0.95rem; }
+
+    .location-card iframe { height: 220px; }
+    #map { height: 240px; }
+    dialog { max-width: 94vw; }
+    .dlg-body { padding: 18px; }
+    .lb-nav { width: 40px; height: 40px; }
+    footer { margin-top: 40px; padding: 24px 14px 32px; }
+    footer ul { gap: 12px; }
+}
+
+/* ----- Very small phones (<= 400px) ----- */
+@media (max-width: 400px) {
+    .site-name, header h1 { font-size: 1.6rem; }
+    section, main > section { padding: 18px; margin: 18px 10px; }
+    .gallery { grid-template-columns: 1fr; }
+    .gallery img { height: 150px; }
+    #map, .location-card iframe { height: 200px; }
+}
+
+/* ----- Landscape phones: compact header ----- */
+@media (max-height: 480px) and (orientation: landscape) {
+    header { padding: 18px 16px 12px; }
+}
