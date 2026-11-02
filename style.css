@@ -1,0 +1,373 @@
+/* ============================================================
+   Ubuntu rise Foundation — shared stylesheet
+   Used by: index.html, about.html, services.html, contact.html, enquiry.html
+   Approach: desktop styles first, then max-width media queries for
+   tablet (<= 992px, <= 768px) and mobile (<= 600px, <= 400px).
+   ============================================================ */
+
+/* ===== Design tokens (colours reused across the site) ===== */
+:root {
+    --green-dark: #1b3a34;
+    --green-mid: #2f5d50;
+    --gold: #f4c76b;
+    --gold-light: #ffdb94;
+    --cream: #fdf8ee;
+    --panel: rgba(0, 0, 0, 0.25);
+}
+
+/* ===== Global page reset & base styling ===== */
+*, *::before, *::after {
+    box-sizing: border-box; /* Padding never pushes elements wider than their container */
+}
+html {
+    -webkit-text-size-adjust: 100%; /* Stops phones inflating text after rotation */
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    background-color: var(--green-dark); /* Fallback if the gradient fails to load */
+    background-image: linear-gradient(160deg, #1b3a34 0%, #2f5d50 45%, #c98a3e 100%);
+    background-attachment: fixed;
+    color: var(--cream);
+    font-size: 1rem;
+    line-height: 1.5;
+    overflow-x: hidden; /* Safety net: no sideways scrolling on small screens */
+}
+img, iframe {
+    max-width: 100%; /* Media never overflows its container */
+}
+
+/* ===== Header / hero banner ===== */
+header {
+    text-align: center;
+    padding: 60px 20px 40px 20px;
+}
+header h1 {
+    font-size: 2.8rem;
+    margin: 0;
+    letter-spacing: 1px;
+    color: var(--gold);
+}
+header p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    font-style: italic;
+    color: var(--cream);
+}
+
+/* ===== Navigation bar (desktop: horizontal pills) ===== */
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+nav a {
+    color: var(--cream);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 18px;
+    border-radius: 30px;
+    border: 2px solid var(--gold);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+/* Pseudo-classes: hover, focus (keyboard users), active (while pressed) */
+nav a:hover,
+nav a:focus-visible {
+    background-color: var(--gold);
+    color: var(--green-dark);
+    outline: none;
+}
+nav a:active {
+    background-color: var(--gold-light);
+    color: var(--green-dark);
+}
+/* Highlights the page the visitor is currently on */
+nav a[aria-current="page"] {
+    background-color: var(--gold);
+    color: var(--green-dark);
+}
+/* Hamburger button: hidden on desktop, shown on tablet/mobile (see media queries) */
+.nav-toggle {
+    display: none;
+    background: none;
+    color: var(--cream);
+    border: 2px solid var(--gold);
+    border-radius: 30px;
+    padding: 10px 18px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+.nav-toggle:hover,
+.nav-toggle:focus-visible {
+    background-color: var(--gold);
+    color: var(--green-dark);
+    outline: none;
+}
+
+/* ===== Content "card" sections (Home, About, Services, Enquiry) ===== */
+section {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: var(--panel);
+    border-radius: 16px;
+    text-align: center;
+}
+section h2 {
+    font-size: 1.8rem;
+    color: var(--gold);
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+section p,
+section > p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+section ul {
+    text-align: left;
+    display: inline-block;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-top: 10px;
+}
+section img {
+    max-width: 100%;
+    height: auto; /* Keeps the image's aspect ratio when it shrinks */
+    border-radius: 12px;
+    margin-top: 20px;
+}
+.caption {
+    font-size: 0.95rem;
+    color: var(--gold);
+    margin-top: 10px;
+}
+
+/* ===== Buttons ===== */
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 32px;
+    background-color: var(--gold);
+    color: var(--green-dark);
+    text-decoration: none;
+    font-family: inherit;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.btn:hover,
+.btn:focus-visible {
+    background-color: var(--gold-light);
+    transform: scale(1.05);
+    outline: none;
+}
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* ===== Contact page: main wrapper ===== */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+main > h2 {
+    font-size: 1.8rem;
+    color: var(--gold);
+    text-align: center;
+    margin-top: 50px;
+}
+main > p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: center;
+    max-width: 600px;
+    margin: 10px auto 0 auto;
+}
+main section {
+    margin: 40px auto;
+}
+main section h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* ===== Contact page: embedded map card ===== */
+.location-card {
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: var(--panel);
+}
+.location-card iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
+    display: block;
+}
+
+/* ===== Contact page: info cards (phone, email, hours) ===== */
+.info-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.info-card {
+    background-color: var(--panel);
+    border-radius: 16px;
+    padding: 25px;
+    flex: 1 1 220px;
+    max-width: 260px;
+    text-align: center;
+}
+.info-card h3 {
+    color: var(--gold);
+    margin-top: 0;
+}
+.info-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    overflow-wrap: anywhere; /* Long emails/numbers wrap instead of overflowing */
+}
+
+/* ===== Enquiry page: form styling ===== */
+.field {
+    margin-bottom: 20px;
+    text-align: left;
+}
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: var(--gold);
+}
+.hint {
+    font-weight: normal;
+    font-style: italic;
+    color: var(--cream);
+    margin-left: 6px;
+}
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1rem; /* 16px minimum stops iOS zooming into fields */
+    border: 2px solid transparent;
+    border-radius: 8px;
+}
+/* Pseudo-classes on form controls: gold ring on focus, subtle hover tint */
+input:hover, select:hover, textarea:hover {
+    background-color: #fffdf6;
+}
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(244, 199, 107, 0.45);
+}
+input:invalid:not(:placeholder-shown) {
+    border-color: #e57373; /* Red outline once the user has typed something invalid */
+}
+form .btn {
+    display: block;
+    width: 100%;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+form .btn:hover {
+    transform: scale(1.02);
+}
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+/* ----- Large tablets / small laptops (<= 992px) ----- */
+@media (max-width: 992px) {
+    header h1 { font-size: 2.5rem; }
+    section { margin: 40px 24px; max-width: none; }
+    main { max-width: 100%; }
+}
+
+/* ----- Tablets (<= 768px): hamburger navigation, two-column cards ----- */
+@media (max-width: 768px) {
+    header { padding: 40px 20px 28px 20px; }
+    header h1 { font-size: 2.2rem; }
+    header p { font-size: 1.1rem; }
+
+    /* Navigation collapses behind a toggle button */
+    nav {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        padding: 12px 20px;
+    }
+    .nav-toggle { display: block; width: 100%; }
+    nav a {
+        display: none;            /* Links hidden until the menu is opened */
+        text-align: center;
+        padding: 12px 18px;       /* Larger tap target */
+    }
+    nav.open a { display: block; }
+
+    section { padding: 30px; }
+    section h2 { font-size: 1.6rem; }
+    main > h2 { font-size: 1.6rem; }
+
+    .info-card { flex: 1 1 200px; max-width: none; }
+    .location-card iframe { height: 260px; }
+}
+
+/* ----- Mobile (<= 600px): single column, smaller type ----- */
+@media (max-width: 600px) {
+    header { padding: 32px 16px 22px 16px; }
+    header h1 { font-size: 1.9rem; letter-spacing: 0.5px; }
+    header p { font-size: 1rem; }
+
+    section {
+        margin: 24px 14px;
+        padding: 22px;
+    }
+    section h2 { font-size: 1.4rem; margin-bottom: 14px; }
+    section p, section > p, main > p { font-size: 1rem; }
+    section ul { font-size: 1rem; padding-left: 20px; }
+    .caption { font-size: 0.9rem; }
+
+    main { padding: 0 14px; }
+    main > h2 { font-size: 1.4rem; margin-top: 30px; }
+    main section { margin: 24px 0; }
+    main section h2 { font-size: 1.25rem; }
+
+    .info-cards { flex-direction: column; align-items: stretch; }
+    .info-card { flex: 1 1 auto; padding: 20px; }
+    .location-card iframe { height: 220px; }
+
+    .btn { display: block; text-align: center; width: 100%; padding: 14px 20px; }
+}
+
+/* ----- Very small phones (<= 400px) ----- */
+@media (max-width: 400px) {
+    header h1 { font-size: 1.6rem; }
+    section { padding: 18px; margin: 18px 10px; }
+    section h2 { font-size: 1.25rem; }
+    .location-card iframe { height: 200px; }
+}
+
+/* ----- Landscape phones: keep the header compact ----- */
+@media (max-height: 480px) and (orientation: landscape) {
+    header { padding: 20px 16px 14px 16px; }
+}
+
+/* ----- Respect users who prefer reduced motion ----- */
+@media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+    .btn:hover, form .btn:hover { transform: none; }
+}
