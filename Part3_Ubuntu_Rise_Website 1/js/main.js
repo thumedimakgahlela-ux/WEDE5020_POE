@@ -75,3 +75,15 @@ document.querySelectorAll('dialog.modal').forEach(function (dlg) {
     dlg.querySelector('.dlg-close').addEventListener('click', function () { dlg.close(); });
     dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
 });
+
+/* ---------- Mobile navigation toggle (button is hidden by CSS on desktop) ---------- */
+(function () {
+    var toggle = document.querySelector('.nav-toggle');
+    var nav = document.querySelector('nav');
+    if (!toggle || !nav) return;
+    toggle.addEventListener('click', function () {
+        var isOpen = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        toggle.textContent = isOpen ? '\u2715 Close' : '\u2630 Menu';
+    });
+})();

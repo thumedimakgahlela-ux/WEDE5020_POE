@@ -56,7 +56,8 @@ Enquiry page
 
 # Part 3: Functionality, SEO and deployment
 
-**Live site:** https://ubuntu-rise-foundation.netlify.app  *(update to your real URL after deploying)*
+**Live site:** https://thumedimakgahlela-ux.github.io/WEDE5020_POE/
+**Repository:** https://github.com/thumedimakgahlela-ux/WEDE5020_POE
 
 ## New website features (Part 3)
 - **Services page:** service cards are built with JavaScript from a data array, with live search, category filter and sort (A-Z / cost). A "Learn more" modal, plus an FAQ accordion.
@@ -68,11 +69,50 @@ Enquiry page
 ## SEO and technical improvements
 Unique `<title>` and meta description per page, one `<h1>` per page with H2/H3 hierarchy, Open Graph tags, canonical URLs, JSON-LD (`NGO`) structured data, descriptive image filenames and alt text, internal links in a footer, `robots.txt`, `sitemap.xml`, lazy-loaded images with width/height, deferred scripts, a Netlify `_headers` file for security headers, and `rel`/`referrerpolicy` on embeds.
 
-## Changelog
-All edits made after Part 2 feedback. *(Add the lecturer's exact feedback comments in the "Feedback addressed" column where they apply.)*
+## Responsive design
+The site is desktop-first and adapted with media queries at the end of `css/style.css`.
 
+| Breakpoint | Target | Layout | Typography | Navigation |
+|------------|--------|--------|------------|------------|
+| > 992px | Desktop | Centred 700-900px cards; service cards in an auto-fit grid | Site name 2.8em, h2 1.8em | Horizontal pill links |
+| <= 992px | Small laptop / large tablet | Cards fill the width with 24px side margins | Site name 2.5rem | Horizontal pill links |
+| <= 768px | Tablet | Reduced padding; map 280px; gallery thumbnails 130px | Site name 2.2rem, h1 1.7rem, h2 1.55rem | Collapses behind a **Menu** button; links stack full-width |
+| <= 600px | Mobile | Single column: info cards, toolbar, service cards and form rows stack; gallery 2 columns; buttons full width | Site name 1.9rem, h1 1.5rem, h2 1.35rem, body 1rem | Stacked links with large tap targets |
+| <= 400px | Small phones | Tighter padding; gallery 1 column; map 200px | Site name 1.6rem | Same as mobile |
+
+Other techniques: `viewport` meta tag on every page; `box-sizing: border-box`; `max-width: 100%` on images, iframes and video; `overflow-wrap: anywhere` on contact details; 16px minimum form-field text; `prefers-reduced-motion` support.
+Testing: every page was checked at 1280px, 768px, 375px and 320px widths with no horizontal scrolling.
+
+## Project structure
+```
+WEDE5020_POE/
+  index.html, about.html, services.html, contact.html, enquiry.html
+  css/style.css        shared styles + media queries
+  js/main.js           accordion, tabs, lightbox, mobile menu toggle
+  js/services.js       dynamic service cards, search/filter/sort, modal
+  js/forms.js          form validation, cost and availability results
+  js/map.js            Leaflet / OpenStreetMap map
+  images/              photos (descriptive file names)
+  robots.txt, sitemap.xml, _headers
+  README.md
+```
+
+## Technologies used
+HTML5, CSS3 (flexbox, grid, media queries, pseudo-classes), JavaScript (ES5/ES6), Leaflet with OpenStreetMap tiles, embedded YouTube video, GitHub Pages.
+
+## How to run locally
+Download or clone the repository and open `index.html` in a browser. No build step is needed. Use the browser developer tools device toolbar (F12) to see the tablet and mobile layouts.
+
+## Changelog
+All edits made after Part 2 feedback. 
 | Date | File(s) | Change | Reason / feedback addressed |
 |------|---------|--------|-----------------------------|
+| 2026-11-02 | css/style.css | Added media queries at 992px, 768px, 600px and 400px (plus landscape-phone and reduced-motion rules) covering layout, cards, toolbar, gallery, map, dialogs, forms and footer | Rubric: Media queries/breakpoints for tablet and mobile; Responsive layout |
+| 2026-11-02 | css/style.css | Scaled heading, tagline, lead and body text down at each breakpoint; form fields kept at 16px | Rubric: Responsive typography |
+| 2026-11-02 | all pages, js/main.js, css/style.css | Added a collapsible "Menu" button (aria-expanded) that stacks the nav links full-width on tablet and mobile | Rubric: Navigation menu adjustments |
+| 2026-11-02 | css/style.css | Added `:focus-visible`, `:active` and hover states for nav, buttons, form fields, tabs and accordion | Rubric: Pseudo-classes |
+| 2026-11-02 | all pages, sitemap.xml, robots.txt | Updated canonical, Open Graph, JSON-LD and sitemap URLs from the Netlify placeholder to the GitHub Pages URL | Live site is hosted on GitHub Pages |
+| 2026-11-02 | README.md | Added responsive design table, project structure, references and this changelog entry | Rubric: README, Changelog and References |
 | 2026-10-31 | all pages | Moved all page-specific `<style>` blocks into the single shared `css/style.css` and linked it on every page | Part 2 CSS was duplicated in every file even though `style.css` existed; easier to maintain and faster (cached) |
 | 2026-10-31 | all pages | Replaced the repeated `<h1>` site title with a `div`; each page now has one unique `<h1>` | SEO: one H1 per page that describes that page |
 | 2026-10-31 | all pages | Added `<main>`, skip-to-content link, `aria-current` on the active nav link, visible focus styles and a footer with internal links | Accessibility and internal linking |
@@ -86,25 +126,32 @@ All edits made after Part 2 feedback. *(Add the lecturer's exact feedback commen
 | 2026-10-31 | enquiry.html, js/forms.js | Added JavaScript validation (name, SA phone/email, numbers, future dates, message length), error messages, and a cost/availability response. Fixed the placeholder phone number that had one digit too many | Part 3: enquiry form requirement; placeholder error |
 | 2026-10-31 | images/ | Renamed images from `Ubuntu picture 1.jpg` etc. to descriptive, space-free names; added width/height and lazy loading | SEO image optimisation and page speed |
 | 2026-10-31 | robots.txt, sitemap.xml, _headers | Added crawler rules, sitemap, and security headers | SEO additional requests and security |
-| 2026-11-01 | all pages | Added a `keywords` meta tag with page-specific keywords | Rubric: meta keywords |
-| 2026-11-01 | index.html, services.html, enquiry.html | Shortened title tags to about 60 characters and meta descriptions to under 160 characters | Rubric: optimised title tags and meta descriptions |
-| 2026-11-01 | README.md | Added Harvard-style References section | Rubric: references |
 
 ## Deployment
-Deployed to Netlify (drag the project folder onto https://app.netlify.com/drop, or connect the GitHub repository). After deploying, replace `https://ubuntu-rise-foundation.netlify.app` in the HTML pages, `sitemap.xml` and `robots.txt` with the real URL.
+The site is deployed with GitHub Pages from the `WEDE5020_POE` repository: https://thumedimakgahlela-ux.github.io/WEDE5020_POE/. Canonical, Open Graph, JSON-LD, `sitemap.xml` and `robots.txt` URLs all use this address. (`_headers` only takes effect on Netlify; GitHub Pages ignores it.)
 
 ## Sitemap
 Home page, About page, Services page, Contact page, Enquiry page
 
 ## References
-*(Harvard style. Add your own "Accessed" dates before submitting, and add the source of each photograph if it was not taken by you.)*
+Agafonkin, V. (2023) *Leaflet: an open-source JavaScript library for interactive maps*. Available at: https://leafletjs.com (Accessed: 2 November 2026).
 
-- Agafonkin, V. 2023. *Leaflet: an open-source JavaScript library for interactive maps*. Available at: https://leafletjs.com [Accessed: DD Month 2026].
-- Google Search Central. n.d. *SEO Starter Guide*. Available at: https://developers.google.com/search/docs/fundamentals/seo-starter-guide [Accessed: DD Month 2026].
-- MDN Web Docs. n.d. *The Dialog element*. Mozilla. Available at: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog [Accessed: DD Month 2026].
-- Netlify. n.d. *Custom headers*. Available at: https://docs.netlify.com/routing/headers/ [Accessed: DD Month 2026].
-- OpenStreetMap contributors. n.d. *OpenStreetMap*. Available at: https://www.openstreetmap.org [Accessed: DD Month 2026].
-- Schema.org. n.d. *NGO*. Available at: https://schema.org/NGO [Accessed: DD Month 2026].
-- Sitemaps.org. n.d. *Sitemaps XML format*. Available at: https://www.sitemaps.org/protocol.html [Accessed: DD Month 2026].
-- W3C Web Accessibility Initiative. n.d. *ARIA Authoring Practices Guide: Accordion and Tabs patterns*. Available at: https://www.w3.org/WAI/ARIA/apg/ [Accessed: DD Month 2026].
-- The Independent Institute of Education. 2026. *WEDE5020 Portfolio of Evidence Part 3 brief*. Unpublished.
+Google (2026) *YouTube embedded players and player parameters*. Available at: https://developers.google.com/youtube/player_parameters (Accessed: 2 November 2026).
+
+Mozilla Developer Network (MDN) (2025a) *Using media queries*. Available at: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries (Accessed: 2 November 2026).
+
+Mozilla Developer Network (MDN) (2025b) *Viewport meta tag*. Available at: https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag (Accessed: 2 November 2026).
+
+Mozilla Developer Network (MDN) (2025c) *Pseudo-classes*. Available at: https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes (Accessed: 2 November 2026).
+
+Mozilla Developer Network (MDN) (2025d) *The dialog element*. Available at: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog (Accessed: 2 November 2026).
+
+OpenStreetMap contributors (2026) *OpenStreetMap*. Available at: https://www.openstreetmap.org (Accessed: 2 November 2026).
+
+Schema.org (2026) *NGO*. Available at: https://schema.org/NGO (Accessed: 2 November 2026).
+
+World Wide Web Consortium (W3C) (2023) *Web Content Accessibility Guidelines (WCAG) 2.2*. Available at: https://www.w3.org/TR/WCAG22/ (Accessed: 2 November 2026).
+
+World Wide Web Consortium (W3C) (2023) *WAI-ARIA Authoring Practices Guide: Accordion and Tabs patterns*. Available at: https://www.w3.org/WAI/ARIA/apg/ (Accessed: 2 November 2026).
+
+Keep a Changelog (2026) *Keep a Changelog*. Available at: https://keepachangelog.com (Accessed: 2 November 2026).

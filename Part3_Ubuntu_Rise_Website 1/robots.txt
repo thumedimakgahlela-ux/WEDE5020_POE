@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ubuntu-rise-foundation.netlify.app/sitemap.xml
+Sitemap: https://thumedimakgahlela-ux.github.io/WEDE5020_POE/sitemap.xml

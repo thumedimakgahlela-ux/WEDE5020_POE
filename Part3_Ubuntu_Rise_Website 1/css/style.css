@@ -323,3 +323,131 @@ input.invalid, select.invalid, textarea.invalid { outline: 3px solid #ff8a75; }
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* ============================================================
+   RESPONSIVE DESIGN (Part 2 feedback fixes)
+   Breakpoints: 992px (small laptop), 768px (tablet),
+   600px (mobile), 400px (small phones).
+   ============================================================ */
+
+/* ----- Base safety rules: nothing may overflow the screen ----- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { overflow-x: hidden; line-height: 1.5; }
+img, iframe, video { max-width: 100%; }
+section img { height: auto; }
+.info-card p, footer p { overflow-wrap: anywhere; }
+
+/* ----- Navigation: desktop = horizontal pills; toggle button hidden ----- */
+.nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.nav-toggle {
+    display: none;
+    width: 100%;
+    background: none;
+    color: #fdf8ee;
+    border: 2px solid #f4c76b;
+    border-radius: 30px;
+    padding: 12px 18px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Extra pseudo-class states for interactive elements */
+nav a:focus-visible { background-color: #f4c76b; color: #1b3a34; }
+nav a:active, .nav-toggle:active { background-color: #ffdb94; color: #1b3a34; }
+.nav-toggle:hover, .nav-toggle:focus-visible { background-color: #f4c76b; color: #1b3a34; }
+.btn:focus-visible { background-color: #ffdb94; }
+.btn:active { transform: scale(0.97); }
+input:hover, select:hover, textarea:hover { background-color: #fffdf6; }
+input:focus, select:focus, textarea:focus { outline: 3px solid #f4c76b; outline-offset: 2px; }
+.acc-btn:hover, .acc-btn:focus-visible { color: #f4c76b; }
+.tabs [role="tab"]:hover { background: rgba(244, 199, 107, 0.25); }
+.tabs [role="tab"][aria-selected="true"]:hover { background: #f4c76b; }
+
+/* ----- Small laptops / large tablets (<= 992px) ----- */
+@media (max-width: 992px) {
+    .site-name, header h1 { font-size: 2.5rem; }
+    main > section, main > section.wide, section { margin-left: 24px; margin-right: 24px; max-width: none; }
+    main { max-width: 100%; }
+    main > section.wide, .toolbar, .card-grid { max-width: 100%; }
+}
+
+/* ----- Tablets (<= 768px): collapsible menu, smaller type, tighter spacing ----- */
+@media (max-width: 768px) {
+    header { padding: 40px 20px 28px; }
+    .site-name, header h1 { font-size: 2.2rem; }
+    .tagline, header p { font-size: 1.1rem; }
+
+    /* Navigation collapses behind a Menu button */
+    nav { display: block; padding: 12px 20px; }
+    .nav-toggle { display: block; }
+    .nav-links { display: none; flex-direction: column; gap: 8px; margin-top: 10px; }
+    nav.open .nav-links { display: flex; }
+    .nav-links a { text-align: center; padding: 13px 18px; } /* large tap target */
+
+    main h1 { font-size: 1.7rem; margin: 30px 20px 0; }
+    section, main > section { padding: 30px; }
+    section h2, main > h2 { font-size: 1.55rem; }
+    .lead { font-size: 1.05rem; }
+
+    .location-card iframe { height: 260px; }
+    #map { height: 280px; }
+    .gallery img { height: 130px; }
+    .info-card { max-width: none; flex: 1 1 200px; }
+    .dlg-body { padding: 22px; }
+}
+
+/* ----- Mobile (<= 600px): single column, smallest type ----- */
+@media (max-width: 600px) {
+    header { padding: 30px 16px 20px; }
+    .site-name, header h1 { font-size: 1.9rem; letter-spacing: 0.5px; }
+    .tagline, header p { font-size: 1rem; }
+
+    main h1 { font-size: 1.5rem; margin: 24px 16px 0; }
+    .lead, section p, main > p { font-size: 1rem; }
+    section, main > section { margin: 24px 14px; padding: 22px; }
+    section h2, main > h2 { font-size: 1.35rem; margin-bottom: 14px; }
+    main section h2 { font-size: 1.25rem; }
+    section ul { font-size: 1rem; padding-left: 20px; }
+    .caption, .lb-caption { font-size: 0.9rem; }
+
+    /* Single-column stacking */
+    .info-cards { flex-direction: column; align-items: stretch; }
+    .info-card { flex: 1 1 auto; padding: 20px; }
+    .toolbar { flex-direction: column; padding: 0 14px; }
+    .toolbar > div { flex: 1 1 auto; }
+    .card-grid { grid-template-columns: 1fr; padding: 0 14px; }
+    .field-row { flex-direction: column; gap: 0; }
+    .gallery { grid-template-columns: repeat(2, 1fr); }
+    .gallery img { height: 110px; }
+
+    /* Full-width buttons are easier to tap */
+    .btn { display: block; width: 100%; text-align: center; padding: 14px 20px; }
+    .result-box .btn { margin: 0 0 10px; }
+    .acc-btn { font-size: 1rem; }
+    .tabs [role="tab"] { padding: 8px 14px; font-size: 0.95rem; }
+
+    .location-card iframe { height: 220px; }
+    #map { height: 240px; }
+    dialog { max-width: 94vw; }
+    .dlg-body { padding: 18px; }
+    .lb-nav { width: 40px; height: 40px; }
+    footer { margin-top: 40px; padding: 24px 14px 32px; }
+    footer ul { gap: 12px; }
+}
+
+/* ----- Very small phones (<= 400px) ----- */
+@media (max-width: 400px) {
+    .site-name, header h1 { font-size: 1.6rem; }
+    section, main > section { padding: 18px; margin: 18px 10px; }
+    .gallery { grid-template-columns: 1fr; }
+    .gallery img { height: 150px; }
+    #map, .location-card iframe { height: 200px; }
+}
+
+/* ----- Landscape phones: compact header ----- */
+@media (max-height: 480px) and (orientation: landscape) {
+    header { padding: 18px 16px 12px; }
+}
